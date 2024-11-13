@@ -1,0 +1,60 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2>CAMT</h2>
+      <ul>
+        <li><a href="/">Home/Dashboard</a></li>
+        <li><a href="/application">Applications</a></li>
+        <li><a href="/service" class="active">Service Ids</a></li>
+        <li><a href="/">Reports</a></li>
+        <li><a href="/">Settings</a></li>
+        <li><a href="/">Logout</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+      <h2 style="display: flex; justify-content: space-between; align-items: center;">
+          Service IDs
+          <button id="refresh-button">🔄 Refresh</button>
+      </h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Service ID</th>
+                <th>Account Type</th>
+                <th>Environment</th>
+                <th>Usage</th>
+                <th>Password Reset</th>
+                <th>Contact</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% serviceIds.forEach(id => { %>
+            <tr>
+                <td><%= id.serviceId %></td>
+                <td><%= id.accountType %></td>
+                <td><%= id.environment %></td>
+                <td><%= id.usage %></td>
+                <td><%= id.passwordReset %></td>
+                <td><%= id.contact %></td>
+            </tr>
+            <% }) %>
+            </tbody>
+          </table>
+          </div>
+      </div>
+
+      </body>
+      </html>
